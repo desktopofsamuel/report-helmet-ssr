@@ -35,41 +35,20 @@ function Seo({ description, lang, meta, title }) {
       }}
       title={title}
       titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata?.author || ``,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-      ].concat(meta)}
-    />
+    >
+      <meta name="title" content={title} />
+      <meta name="og:title" content={title} />
+      <meta name="twitter:title" content={title} />
+      <meta name="description" content={metaDescription} />
+      <meta name="twitter:description" content={metaDescription} />
+      <meta name="og:type" content="website" />
+      {/* <meta name="image" content={image} /> */}
+      <meta name="publisher" content={site.siteMetadata?.author || ``} />
+      <meta name="twitter:creator" content={site.siteMetadata?.author || ``} />
+      <meta name="author" content={site.siteMetadata?.author || ``} />
+      <meta name="twitter:card" content="summary" />
+      <meta name="copyright" content="2022 Copyright" />
+    </Helmet>
   )
 }
 
